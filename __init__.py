@@ -86,6 +86,7 @@ def apply_suffix(word, suffix):
 
 # ADDING OR MODIFYING IS ALLOWED | Dictionary for Kilyaba, updates for the dictionary go here.
 conlang_dict = {
+    # 0.1.0 Alpha Dict [+]
     "kdefdegiuga": "hello",
     "Kdefdegiuga": "Hello",
     "zpeev": "be",
@@ -203,7 +204,28 @@ conlang_dict = {
     "zzalzy": "that",
     "Zzalzy": "That",
     "mzyaso": "this",
-    "Mzyaso": "This"
+    "Mzyaso": "This",
+    # 0.1.1 Alpha Dict [+] [WIP]
+    "zdod": "air",
+    "Zdod": "Air",
+    "zdodzy": "airs",
+    "Zdodzy": "Airs",
+    "vtyislmaf": "airport",
+    "Vtyislmaf": "Airport",
+    "vtyislmafzy": "airports",
+    "Vtyislmafzy": "Airports",
+    "fleg": "alphabet",
+    "Fleg": "Alphabet",
+    "flegzy": "alphabets",
+    "Flegzy": "Alphabets",
+    "fub": "altitude",
+    "Fub": "Altitude",
+    "fubzy": "altitudes",
+    "Fubzy": "Altitudes",
+    "kuols": "art",
+    "Kuols": "Art",
+    "kuolszy": "arts",
+    "Kuolszy": "Arts",
 }
 
 # DO NOT DELETE OR MODIFY | Makes the reverse translations work.
