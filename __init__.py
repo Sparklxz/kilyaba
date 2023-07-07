@@ -481,7 +481,7 @@ conlang_dict = {
     "pgif", "write",
     "Pgif", "Write",
     "pgifzof", "wrote",
-    "Pgifzof", "Wrote",
+    "Pgifzof", "Wrote"
 }
 
 # DO NOT DELETE OR MODIFY | Makes the reverse translations work.
