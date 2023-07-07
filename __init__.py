@@ -262,6 +262,22 @@ conlang_dict = {
     "Mfulu": "Cat",
     "mfuluzy": "cats",
     "Mfuluzy": "Cats",
+    "kduta": "data",
+    "Kduta": "Data",
+    "kdutazy": "datas",
+    "Kdutazy": "Datas",
+    "baob": "friend",
+    "Baob": "Friend",
+    "baobzy": "friends",
+    "Baobzy": "Friends",
+    "miep": "game",
+    "Miep": "Game",
+    "miepzy": "games",
+    "Miepzy": "Games",
+    "bgid": "god",
+    "Bgid": "God",
+    "bgidzy": "gods",
+    "Bgidzy": "Gods",
 }
 
 # DO NOT DELETE OR MODIFY | Makes the reverse translations work.
