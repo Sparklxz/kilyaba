@@ -1,98 +1,24 @@
-# DO NOT DELETE | Makes the Kilyaba to English translator function.
-def translate_sentence(input_sentence, translation_dict):
-    input_words = input_sentence.split()
-    translated_words = []
-    
-    for word in input_words:
-        suffix = get_suffix(word)
-        base_word = remove_suffix(word, suffix)
-
-        translated_word = translation_dict.get(base_word, base_word)
-        translated_word_with_suffix = apply_suffix(translated_word, suffix)
-
-        translated_words.append(translated_word_with_suffix)
-
-    for word in input_words:
-        translated_word = translation_dict.get(word, word)
-        translated_words.append(translated_word)
-
-    translated_sentence = ' '.join(translated_words)
-
-    if "+" in translated_sentence:
-        combined_words = translated_sentence.split("+")
-        translated_sentence = "".join(combined_words)
-
-    return translated_sentence
-
-# DO NOT DELETE | Makes the English to Kilyaba translator function.
-def reverse_translate_sentence(input_sentence, translation_dict):
-    input_words = input_sentence.split()
-    translated_words = []
-
-    for word in input_words:
-        for conlang_word, eng_translation in translation_dict.items():
-            if eng_translation == word:
-                translated_words.append(conlang_word)
-                break
-        else:
-            translated_words.append(word)
-            
-    for word in input_words:
-        suffix = get_suffix(word)
-        base_word = remove_suffix(word, suffix)
-
-        translated_word = reverse_translation_dict.get(base_word, base_word)
-        translated_word_with_suffix = apply_suffix(translated_word, suffix)
-
-        translated_words.append(translated_word_with_suffix)
-    
-    translated_sentence = ' '.join(translated_words)
-
-    if "+" in translated_sentence:
-        combined_words = translated_sentence.split("+")
-        translated_sentence = "".join(combined_words)
-
-    return translated_sentence
-    
-# DELETING THIS IS NOT RECCOMENDED | When the user reports an issue, it goes to the issue report file.
-def report_issue(issue):
-    ticket_number = generate_ticket_number()
-    report_info = f"Ticket Number: {ticket_number}\nIssue: {issue}\n"
-
-    with open("issue_report.txt", "a") as file:
-        file.write(report_info + "\n")
-    print("Thank you for reporting the issue. We will look into it.")
-
-def generate_ticket_number():
-    # Logic to generate a unique ticket number
-    import random
-    return random.randint(1000000000, 9999999999)
-
-# DELETING THIS IS NOT RECCOMENDED | Makes the suffixes function properly.
-def get_suffix(word):
-    suffix = ""
-    if word.endswith(".PAST"):
-        suffix = "zof"
-    elif word.endswith(".PL"):
-        suffix = "zy"
-    return suffix
-
-def remove_suffix(word, suffix):
-    return word[:-len(suffix)]
-
-def apply_suffix(word, suffix):
-    return word + suffix
-
+import random
 
 # ADDING OR MODIFYING IS ALLOWED | Dictionary for Kilyaba, updates for the dictionary go here.
 conlang_dict = {
     # 0.1.0 Alpha Dict [+]
     "kdefdegiuga": "hello",
     "Kdefdegiuga": "Hello",
+    "lyal": "i",
+    "Lyal": "I",
+    "lyal.OBJ1": "me",
+    "Lyal.OBJ": "Me",
+    "lyal.POSS1": "my",
+    "Lyal.POSS1": "My",
+    "lyal.REF1": "myself",
+    "Lyal.REF1": "Myself",
     "zpeev": "be",
     "Zpeev": "Be",
-    "lyal": "I",
-    "lyal": "i",
+    "zpeev.COP3SG": "is",
+    "Zpeev.COP3SG": "Is",
+    "zpeev.PRES3SG": "is.PRES3SG",
+    "Zpeev.PRES3SG": "Is.PRES3SG",
     "megmi": "a",
     "Megmi": "A",
     "kbybo": "the",
@@ -205,7 +131,7 @@ conlang_dict = {
     "Zzalzy": "That",
     "mzyaso": "this",
     "Mzyaso": "This",
-    # 0.2 Alpha Dict [+] [WIP]
+    # 0.2 Alpha Dict [+]
     "gkygfgiz": "who",
     "Gkygfgiz": "Who",
     "zdod": "air",
@@ -471,8 +397,160 @@ conlang_dict = {
     "pgif": "write",
     "Pgif": "Write",
     "pgifzof": "wrote",
-    "Pgifzof": "Wrote"
+    "Pgifzof": "Wrote",
+    "tasde": "all",
+    "Tasde": "All",
+    "lvyeve": "available",
+    "Lvyeve": "Available",
+    "tif": "bad",
+    "Tif": "Bad",
+    "fyne": "beautiful",
+    "Fyne": "Beautiful",
+    "loobde": "best",
+    "Loobde": "Best",
+    "zianta": "better",
+    "Zianta": "Better",
+    "lsyty": "bright",
+    "Lsyty": "Bright",
+    "buyg": "cold",
+    "Buyg": "Cold",
+    "buesgy": "common",
+    "Buesgy": "Common",
+    "mpeb": "difficult",
+    "Mpeb": "Difficult",
+    "fnaokz": "easy",
+    "Fnaokz": "Easy",
+    "miagp": "favourite",
+    "Miagp": "Favourite",
+    "byen": "happy",
+    "Byen": "Happy",
+    "geolvy": "hot",
+    "Geolvy": "Hot",
+    "mdoez": "important",
+    "Mdoez": "Important",
+    "dip": "new",
+    "Dip": "New",
+    "vas": "nice",
+    "Vas": "Nice",
+    "tefge": "old",
+    "Tefge": "Old",
+    "pyva": "real",
+    "Pyva": "Real",
+    "lziusi": "young",
+    "Lziusi": "Young",
+    "Kily": "Kilyaba",
+    "kily": "kilyaba",
+    "vup": "he",
+    "Vup": "He",
+    "kyly": "she",
+    "Kyly": "She",
+    "vaely": "they",
+    "Vaely": "They",
+    "ngyiski": "english",
+    "Ngyiski": "English",
+    "teatta": "earth",
+    "Teatta": "Earth",
+    "maydvi": "madrid",
+    "Maydvi": "Madrid",
+    "poytga": "portuguese",
+    "Poytga": "Portuguese",
+    "ruiski": "russian",
+    "Ruiski": "Russian",
+    "spaynki": "spanish",
+    "Spaynki": "Spanish",
 }
+
+# DO NOT DELETE | Makes the Kilyaba to English translator function.
+def translate_sentence(input_sentence, translation_dict):
+    input_words = input_sentence.split()
+    translated_words = []
+    
+    for word in input_words:
+        if word in translation_dict:
+            translated_word = translation_dict[word]
+        elif word == "lyal":
+            translated_word = random.choice(["i", "me", "my", "myself"])
+        elif word == "Lyal":
+            translated_word = random.choice(["I", "Me", "My", "Myself"])
+        else:
+            translated_word = word
+        translated_words.append(translated_word)
+    
+    for word in input_words:
+        suffix = get_suffix(word)
+        base_word = remove_suffix(word, suffix)
+
+        translated_word = translation_dict.get(base_word, base_word)
+        translated_word_with_suffix = apply_suffix(translated_word, suffix)
+
+        translated_words.append(translated_word_with_suffix)
+
+    translated_sentence = ' '.join(translated_words)
+
+    if "+" in translated_sentence:
+        combined_words = translated_sentence.split("+")
+        translated_sentence = "".join(combined_words)
+
+    return translated_sentence
+
+# DO NOT DELETE | Makes the English to Kilyaba translator function.
+def reverse_translate_sentence(input_sentence, translation_dict):
+    input_words = input_sentence.split()
+    translated_words = []
+        
+    for word in input_words:
+        for conlang_word, eng_translation in translation_dict.items():
+            if eng_translation == word:
+                translated_words.append(conlang_word)
+                break
+        else:
+            translated_words.append(word)
+            
+    for word in input_words:
+        suffix = get_suffix(word)
+        base_word = remove_suffix(word, suffix)
+
+        translated_word = reverse_translation_dict.get(base_word, base_word)
+        translated_word_with_suffix = apply_suffix(translated_word, suffix)
+
+        translated_words.append(translated_word_with_suffix)
+    
+    translated_sentence = ' '.join(translated_words)
+
+    if "+" in translated_sentence:
+        combined_words = translated_sentence.split("+")
+        translated_sentence = "".join(combined_words)
+
+    return translated_sentence
+    
+# DELETING THIS IS NOT RECCOMENDED | When the user reports an issue, it goes to the issue report file.
+def report_issue(issue):
+    ticket_number = generate_ticket_number()
+    report_info = f"Ticket Number: {ticket_number}\nIssue: {issue}\n"
+
+    with open("issue_report.txt", "a") as file:
+        file.write(report_info + "\n")
+    print("Thank you for reporting the issue. We will look into it.")
+
+def generate_ticket_number():
+    # Logic to generate a unique ticket number
+    import random
+    return random.randint(1000000000, 9999999999)
+
+# DELETING THIS IS NOT RECCOMENDED | Makes the suffixes function properly.
+def get_suffix(word):
+    suffix = ""
+    if word.endswith(".PT"):
+        suffix = "zof"
+    elif word.endswith(".PL"):
+        suffix = "zy"
+    return suffix
+
+def remove_suffix(word, suffix):
+    return word[:-len(suffix)]
+
+def apply_suffix(word, suffix):
+    return word + suffix
 
 # DO NOT DELETE OR MODIFY | Makes the reverse translations work.
 reverse_translation_dict = {v: k for k, v in conlang_dict.items()}
@@ -497,7 +575,7 @@ elif choice == "2":
         issue = input("Please briefly describe the issue: ")
         report_issue(issue)
 elif choice == "3":
-    print("Syntax:\n\n '+' - Combines words to create compounds, used for adjective+noun.\n '.PAST' - Makes the word past-tense, use it only when the past tensed word doesn't work.\n '.PL' - Makes the word pluralized, use it only when the pluralized word doesn't work.'")
+    print("Syntax:\n\n '+' - Combines words to create compounds, used for adjective+noun.\n '.PT' - Makes the word past-tense, use it only when the past tensed word doesn't work.\n '.PL' - Makes the word pluralized, use it only when the pluralized word doesn't work.\n '.OBJ1' - Makes it a First Person Singular Object Pronoun.\n '.POSS1' - Makes it a First Person Singular Possessive Pronoun\n '.REF1' - Makes it a Reflexive Pronoun\n 'PRES3SG' - Makes it a Third Person Singular Present Tense \n '.COP3SG' - Makes it a Third person singular copula.\n '.EXIST3SG' - Makes it a Third Person Singular Existential Verb")
 elif choice == "4":
     issue = input("Please briefly describe the issue: ")
     report_issue(issue)
