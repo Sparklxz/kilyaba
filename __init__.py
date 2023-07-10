@@ -456,10 +456,14 @@ conlang_dict = {
     "Poytga": "Portuguese",
     "duiski": "russian",
     "Duiski": "Russian",
-    "ruiski.DKI": "russian.DKI",
-    "Ruiski.DKI": "Russian.DKI",
+    "ruiski": "russian.DKI",
+    "Ruiski": "Russian.DKI",
     "spaynki": "spanish",
     "Spaynki": "Spanish",
+    # 0.2.1 Alpha Dict [+] [FIX]
+    "fsisi": "fly",
+    "fsisa": "fly.SPK",
+    "fsisy": "fly.DKI"
 }
 
 # DO NOT DELETE | Makes the Kilyaba to English translator function.
@@ -577,7 +581,7 @@ elif choice == "2":
         issue = input("Please briefly describe the issue: ")
         report_issue(issue)
 elif choice == "3":
-    print("Syntax:\n\n '+' - Combines words to create compounds, used for adjective+noun.\n '.PT' - Makes the word past-tense, use it only when the past tensed word doesn't work.\n '.PL' - Makes the word pluralized, use it only when the pluralized word doesn't work.\n '.OBJ1' - Makes it a First Person Singular Object Pronoun.\n '.POSS1' - Makes it a First Person Singular Possessive Pronoun\n '.REF1' - Makes it a Reflexive Pronoun\n 'PRES3SG' - Makes it a Third Person Singular Present Tense \n '.COP3SG' - Makes it a Third person singular copula.\n '.DKI' - Duysza Kily dialect.\n 'ZPK' - Zute Poytga Kily dialect.")
+    print("Syntax:\n\n '+' - Combines words to create compounds, used for adjective+noun.\n '.PT' - Makes the word past-tense, use it only when the past tensed word doesn't work.\n '.PL' - Makes the word pluralized, use it only when the pluralized word doesn't work.\n '.OBJ1' - Makes it a First Person Singular Object Pronoun.\n '.POSS1' - Makes it a First Person Singular Possessive Pronoun\n '.REF1' - Makes it a Reflexive Pronoun\n 'PRES3SG' - Makes it a Third Person Singular Present Tense \n '.COP3SG' - Makes it a Third person singular copula.\n '.DKI' - Duysza Kily dialect.\n '.ZPK' - Zute Poytga Kily dialect.\n '.SPK' - Spani Kily dialect.")
 elif choice == "4":
     issue = input("Please briefly describe the issue: ")
     report_issue(issue)
